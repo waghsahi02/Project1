@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Login Form</title>
+
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #222;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url("fashion-industry.webp");
+	background-size: cover;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(50% - 35px);
+	left: calc(50% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: right;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: 10%;
+	right :40%;
+	left : 60%;
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+
+.login input[type=button]{
+	width: 260px;
+	height: 35px;
+	background: transparent;
+	border: 1px solid #fff;
+	cursor : pointer;
+	border-radius: 2px;
+	color : rgb(185, 33, 192);
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 990;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.6;
+}
+
+.login input[type=button]:active{
+	opacity: 0.8;
+}
+
+.login input[type=button]:focus{
+	outline: #fff;
+}
+
+.popup .overlay{
+
+position: fixed;
+top: 0px;
+left:0px;
+width:fit-content;
+height: fit-content;
+background: rgba(0,0,0,0.6);
+z-index: 1;
+display: none;
+
+}
+
+.popup .content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background: rgb(44, 44, 44);
+	color: #fff;
+	width: 450px;
+	height: 220px;
+	z-index: 2;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+
+}
+
+.popup .close-btn{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 30px;
+	height: 30px;
+	background: #222;
+	color: #fff;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 50%;
+
+}
+
+.popup.active .overlay{
+	display: block;
+
+}
+
+.popup.active .content{
+	transition: all 300ms ease-in-out;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="main">
+	</div>
+  <form action="Login" method="post">
+  <div class="body"></div>
+		<div class="grad"></div>
+		<br>
+		<div class="login">
+				<input type="button" value="ABOUT" onclick="togglePopup()">
+				<input type="button" value="FASHION & TECH" onclick="togglePopup2()">
+				<div>
+				  <a href= "signup.html">
+        			<input type="button" value="SIGN-UP HERE" >
+   				 </a>
+			  </div>
+				
+		</div>
+   </form>
+
+   	<div class="popup" id="popup-1">
+		   <div class="overlay"> </div>
+		   <div class="content">
+		   <div class="close-btn"  onclick="togglePopup()">&timesb;</div>
+
+		   <h1> ABOUT FASHION </h1>
+		   <P>Fashion is a form of self-expression and autonomy at a particular period and place and in a specific context, of clothing, footwear, lifestyle,
+		      accessories, makeup, hairstyle, and body posture. In its everyday use, the term implies a look defined by the fashion industry as that which is 
+		      trending.</P>
+			  <div>
+			  <p>FOR MORE INFORMATION GO TO GOOGLE BELOW !!</p> <br>
+				  <a href='https://www.google.com'>
+        				<button class="GFG">
+           				 Click Here
+       					 </button>
+   				 </a>
+			  </div>
+
+		   </div>
+	   </div>
+	   
+	   <div class="popup" id="popup-2">
+		   <div class="overlay"> </div>
+		   <div class="content">
+		   <div class="close-btn"  onclick="togglePopup2()"> &timesb;</div>
+			
+			<h1> AI IN FASHION </h1>
+		   		<P>Global AI in Fashion Market report provides detailed insight, industry knowledge, market forecasts, and analytics to make confident capital 
+		   		investment decisions, develop strategic plans, optimize their business portfolio, innovate successfully and operate safely and sustainably. 
+		   		The research study on Global AI in Fashion Market report study includes significant data and also forecasts of the global market which makes the 
+		   		research report a helpful resource for marketing people, analysts, industry executives, consultants, sales and product managers, and other people who
+		   		 are in need of major industry data in a ready-to-access format along with clear presentation of graphs and tables.</P>
+			 
+
+		   </div>
+	   </div>
+</body>
+
+
+<script>
+function togglePopup(){
+
+    document.getElementById("popup-1").classList.toggle("active");
+}
+function togglePopup2(){
+
+    document.getElementById("popup-2").classList.toggle("active");
+}
+
+</script>
+</html>
